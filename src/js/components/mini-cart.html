@@ -1,0 +1,36 @@
+<div class="minicart col-lg-3">
+    <button class="cart-toggle pull-right" ng-click="$ctrl.toggleCart($event)">
+      <div class="pull-right">MY CART ({{ $ctrl.cartItemCount }})<b class="caret"></b></div>      
+    </button>
+    <div class="cart" ng-class="{'show': !$ctrl.IsMinimized}"  ng-show="!$ctrl.IsMinimized">
+        <ul class="cartContent">
+            <li ng-repeat="item in $ctrl.cartItem" class="clearfix">
+                <div class="row">
+                    <div class="thumbnail col-lg-4">
+                        <img ng-src="./assets/images/{{item.image}}">
+                    </div>
+                    <div class="miniDetail col-lg-7">
+                        <div class="miniTitle">{{item.title}} * {{item.quantity}}</div>
+                        <div class="miniBrand">{{item.brand}}</div>
+                        <div class="miniPrice">{{item.price | currency}}</div>
+                    </div>
+                    <div class="miniRemove col-lg-1">
+                        <span ng-click="$ctrl.removeItem(item.title)">X</span>
+                    </div>
+                </div>
+            </li>            
+        </ul>
+        <hr>
+        <div class="row">
+            <div class="col-sm-8 total">
+                TOTAL
+            </div>
+            <div class="col-sm-4 totalPrice">
+                {{$ctrl.total | currency}}
+            </div>
+        </div>
+
+        <a ui-sref="app.cart"><button class="viewButton">VIEW CART</button></a>
+        <button class="checkoutButton">CHECKOUT</button>
+    </div>
+</div>

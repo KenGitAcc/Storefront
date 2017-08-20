@@ -1,0 +1,23 @@
+<div class="product-page">
+    <hr>
+    <div class="product-breadcrum">
+      
+      <a ui-sref="app.home"><b> HOME</b></a> / <b>PLATES /</b> {{$ctrl.product.title | uppercase}}
+    </div>
+    <div class="row">
+        <div class="col-lg-7  product-image">
+            <img ng-src="./assets/images/{{$ctrl.product.image}}" class="img-responsive" />
+        </div>
+        <div class="col-lg-5  product-details">
+            <div class="product-brand">{{$ctrl.product.brand}}</div>
+            <div class="product-title">{{$ctrl.product.title}}</div>
+            <div class="product-price">{{$ctrl.product.price | currency }}</div>
+            <div class="product-description">{{$ctrl.product.description }}</div>
+            <hr>
+            <div class="box-container">
+            <clickable-num qty=$ctrl.qty></clickable-num>
+            <add-to-cart name="{{$ctrl.product.title}}" quantity="$ctrl.qty"></add-to-cart>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="galleryContainer">
+    <product-preview
+        product="product"
+        ng-repeat="product in $ctrl.products"
+        >
+    </product-preview>
+</div>
+
+<div class="product-preview"
+  ng-hide="!$ctrl.loading">
+  Loading products...
+</div>
+
+<div class="product-preview"
+  ng-show="!$ctrl.loading && !$ctrl.products.length">
+  No products are here... yet.
+</div>
+

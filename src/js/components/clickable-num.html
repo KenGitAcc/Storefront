@@ -1,0 +1,7 @@
+<div class="clickable-num">
+    <div class="clickable-container">
+        <input ng-model="$ctrl.qty" type='text' class='quantity' disabled />
+        <button ng-click="$ctrl.increment()" class='qtyplus'>+</button>
+        <button ng-click="$ctrl.decrement()" class='qtyminus' ng-disabled="$ctrl.qty<=0">-</button> 
+    </div>       
+</div>

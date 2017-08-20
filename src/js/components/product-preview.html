@@ -1,0 +1,13 @@
+<div class="product-preview" ng-mouseenter="hover=true" ng-mouseleave="hover=false">
+
+<a><img ng-src="./assets/images/{{$ctrl.product.image}}" class="img-responsive" />
+   <a ui-sref="app.product({ title: $ctrl.product.title })" class="detail-link" ng-show="hover">
+       <span>VIEW DETAILS</span>
+   </a>
+   <add-to-cart quantity="1" name="{{$ctrl.product.title}}" ng-show="hover">
+   </add-to-cart>
+</a>
+<h6>{{$ctrl.product.brand}}</h6>
+<p>{{$ctrl.product.title}}</p>
+<h6>{{$ctrl.product.price | currency}}</h6>
+</div>
