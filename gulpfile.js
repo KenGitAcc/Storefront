@@ -46,6 +46,19 @@ gulp.task('html', function() {
       .pipe(gulp.dest('./build/'));
 });
 
+gulp.task('assets', function() {
+  return gulp.src("assets/**/**.**")
+      .on('error', interceptErrors)
+      .pipe(gulp.dest('./build/assets/'));
+});
+
+gulp.task('data', function() {
+  return gulp.src("products.json")
+      .on('error', interceptErrors)
+      .pipe(gulp.dest('./build/'));
+});
+
+
 gulp.task('views', function() {
   return gulp.src(viewFiles)
       .pipe(templateCache({
@@ -69,7 +82,8 @@ gulp.task('build', ['html', 'browserify'], function() {
   return merge(html,js);
 });
 
-gulp.task('default', ['html', 'browserify'], function() {
+
+gulp.task('default', ['html', 'browserify', 'assets', 'data'], function() {
 
   browserSync.init(['./build/**/**.**'], {
     server: "./build",
